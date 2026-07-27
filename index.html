@@ -8,15 +8,24 @@
     <style>
         body {
             margin: 0; padding: 0;
-            /* ล็อกพื้นหลังphoto11.png ห้ามขยับ ห้ามเลื่อน */
-            background: url('photo11.png') no-repeat center center fixed;
-            background-size: cover;
             font-family: 'Prompt', sans-serif;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             height: 100vh; overflow: hidden;
             touch-action: manipulation;
             user-select: none;
             position: relative;
+        }
+
+        /* ล็อกพื้นหลังphoto11.png ห้ามขยับ ห้ามเลื่อน 100% */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: url('photo11.png') no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+            pointer-events: none;
         }
 
         .butterfly {
